@@ -1,14 +1,15 @@
-<%= simple_form_for @recipe do |r| %>
+<%= simple_form_for @recipe do |recipe| %>
   <%= flash[:error] %>
-  <%= r.input :name, label: 'Nome da Receita:' %>
-  <%= r.input :kitchen, label: 'Cozinha:' %>
-  <%= r.input :type_of_food, label: 'Tipo de Comida:' %>
-  <%= r.input :preference, label: 'Preferência de Comida:' %>
-  <%= r.input :amount, label: 'Serve:' %>
-  <%= r.input :preparation_time, label: 'Tempo de Preparo:' %>
-  <%= r.input :difficulty, label: 'Nível de Dificuldade:' %>
-  <%= r.input :ingredients, label: 'Ingredientes:' %>
-  <%= r.input :steps, label: 'Passo-a-Passo:' %>
-  <%= r.input :photo, label: 'Foto:', as: :file %>
-  <%= r.button :submit, 'Cadastrar Receita:' %>
+  <%= recipe.input :name, label: 'Nome da Receita:' %>
+  <%= recipe.association :kitchen, label: 'Cozinha:', label_method: :name,
+                   value_method: :id %>
+  <%= recipe.input :type_of_food, label: 'Tipo de Comida:' %>
+  <%= recipe.input :preference, label: 'Preferência de Comida:' %>
+  <%= recipe.input :amount, label: 'Serve:' %>
+  <%= recipe.input :preparation_time, label: 'Tempo de Preparo:' %>
+  <%= recipe.input :difficulty, label: 'Nível de Dificuldade:' %>
+  <%= recipe.input :ingredients, label: 'Ingredientes:' %>
+  <%= recipe.input :steps, label: 'Passo-a-Passo:' %>
+  <%= recipe.input :photo, label: 'Foto:', as: :file %>
+  <%= recipe.button :submit, 'Cadastrar Receita' %>
 <% end %>

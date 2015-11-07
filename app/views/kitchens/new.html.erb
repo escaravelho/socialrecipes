@@ -1,0 +1,5 @@
+<%= simple_form_for @kitchen do |kitchen| %>
+  <%= flash[:error] %>
+  <%= kitchen.input :name, label: 'Nome:' %>
+  <%= kitchen.button :submit, 'Cadastrar Cozinha' %>
+<% end %>
