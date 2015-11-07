@@ -2,10 +2,12 @@ require 'rails_helper'
 
 feature 'User should insert a new recipe' do
   scenario 'successfully' do
+    kitchen = create(:kitchen)
+
     visit new_recipe_path
 
     fill_in 'Nome da Receita', with: 'Feijoada'
-    fill_in 'Cozinha', with: 'Brasileira'
+    select(kitchen.name, from: 'Cozinha:')
     fill_in 'Tipo de Comida', with: 'Caseira'
     fill_in 'Preferência de Comida', with: 'Vegetariana'
     fill_in 'Serve', with: '5'
@@ -18,7 +20,7 @@ feature 'User should insert a new recipe' do
     click_on 'Cadastrar Receita'
 
     expect(page).to have_content 'Feijoada'
-    expect(page).to have_content 'Brasileira'
+    expect(page).to have_content kitchen.name
     expect(page).to have_content 'Caseira'
     expect(page).to have_content 'Vegetariana'
     expect(page).to have_content '5'

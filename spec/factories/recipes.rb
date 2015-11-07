@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :recipe do
     name 'Feijoada '
-    kitchen 'Brasileira'
+    kitchen
     type_of_food 'Prato Principal'
     preference 'Sem Glúten'
     amount 6
