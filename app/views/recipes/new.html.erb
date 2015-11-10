@@ -3,6 +3,8 @@
   <%= recipe.input :name, label: 'Nome da Receita:' %>
   <%= recipe.association :kitchen, label: 'Cozinha:', label_method: :name,
                    value_method: :id %>
+  <%= recipe.association :type_of_food, label: 'Tipo de Comida:',
+                   label_method: :name, value_method: :id %>
   <%= recipe.input :type_of_food, label: 'Tipo de Comida:' %>
   <%= recipe.input :preference, label: 'Preferência de Comida:' %>
   <%= recipe.input :amount, label: 'Serve:' %>
@@ -11,5 +13,5 @@
   <%= recipe.input :ingredients, label: 'Ingredientes:' %>
   <%= recipe.input :steps, label: 'Passo-a-Passo:' %>
   <%= recipe.input :photo, label: 'Foto:', as: :file %>
-  <%= recipe.button :submit, 'Cadastrar Receita' %>
+  <%= recipe.button :submit, 'Cadastrar' %>
 <% end %>

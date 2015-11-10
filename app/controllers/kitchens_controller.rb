@@ -8,7 +8,7 @@ class KitchensController < ApplicationController
     if @kitchen.save
       redirect_to @kitchen
     else
-      flash.now[:error] = 'Por favor, insira os dados obrigatórios'
+      flash.now[:error] = 'Insira o dado obrigatório!'
       render 'new'
     end
   end
