@@ -3,12 +3,13 @@ require 'rails_helper'
 feature 'User should insert a new recipe' do
   scenario 'successfully' do
     kitchen = create(:kitchen)
+    type_of_food = create(:type_of_food)
 
     visit new_recipe_path
 
     fill_in 'Nome da Receita', with: 'Feijoada'
     select(kitchen.name, from: 'Cozinha:')
-    fill_in 'Tipo de Comida', with: 'Caseira'
+    select(type_of_food.name, from: 'Tipo de Comida:')
     fill_in 'Preferência de Comida', with: 'Vegetariana'
     fill_in 'Serve', with: '5'
     fill_in 'Nível de Dificuldade', with: 'Médio'
@@ -17,11 +18,11 @@ feature 'User should insert a new recipe' do
     fill_in 'Passo-a-Passo', with: 'Cozinhar 1 KG de feijão preto'
     attach_file 'Foto', 'spec/photos/feijoada.jpg'
 
-    click_on 'Cadastrar Receita'
+    click_on 'Cadastrar'
 
     expect(page).to have_content 'Feijoada'
     expect(page).to have_content kitchen.name
-    expect(page).to have_content 'Caseira'
+    expect(page).to have_content type_of_food.name
     expect(page).to have_content 'Vegetariana'
     expect(page).to have_content '5'
     expect(page).to have_content '120'
@@ -34,8 +35,8 @@ feature 'User should insert a new recipe' do
   scenario 'unsuccessfully' do
     visit new_recipe_path
 
-    click_on 'Cadastrar Receita'
+    click_on 'Cadastrar'
 
-    expect(page).to have_content 'Por favor, insira os dados obrigatórios'
+    expect(page).to have_content 'Insira os dados obrigatórios'
   end
 end

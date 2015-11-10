@@ -1,18 +1,17 @@
 require 'rails_helper'
 
-feature 'User should create a kitchen' do
+feature 'User should create type of food' do
   scenario 'successfully' do
-    visit new_kitchen_path
+    visit new_type_of_food_path
 
-    fill_in 'Nome', with: 'Brasileira'
+    fill_in 'Nome:', with: 'Prato Principal'
 
     click_on 'Cadastrar'
 
-    expect(page).to have_content 'Brasileira'
+    expect(page).to have_content 'Prato Principal'
   end
-
   scenario 'unsuccessfully' do
-    visit new_kitchen_path
+    visit new_type_of_food_path
 
     click_on 'Cadastrar'
 

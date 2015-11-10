@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to @recipe
     else
-      flash.now[:error] = 'Por favor, insira os dados obrigatórios'
+      flash.now[:error] = 'Insira os dados obrigatórios'
       render 'new'
     end
   end
@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name,
                                    :kitchen_id,
-                                   :type_of_food,
+                                   :type_of_food_id,
                                    :preference,
                                    :amount,
                                    :preparation_time,

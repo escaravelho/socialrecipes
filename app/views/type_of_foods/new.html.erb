@@ -1,0 +1,5 @@
+<%= simple_form_for @type_of_food do |type_of_food| %>
+  <%= flash[:error] %>
+  <%= type_of_food.input :name, label: 'Nome:' %>
+  <%= type_of_food.button :submit, 'Cadastrar' %>
+<% end %>
