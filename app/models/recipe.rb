@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
   belongs_to :kitchen
   belongs_to :type_of_food
-  validates :name, :type_of_food, :preference, :ingredients,
+  validates :name, :kitchen, :type_of_food, :preference, :ingredients,
             :steps, presence: true
 
   has_attached_file :photo
