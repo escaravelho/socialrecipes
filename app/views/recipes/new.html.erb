@@ -1,5 +1,5 @@
+<%= flash[:error] %>
 <%= simple_form_for @recipe do |recipe| %>
-  <%= flash[:error] %>
   <%= recipe.input :name, label: 'Nome da Receita:' %>
   <%= recipe.association :kitchen, label: 'Cozinha:', label_method: :name,
                    value_method: :id %>
